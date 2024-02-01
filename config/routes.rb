@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :carts, only: [:show] do
+    member do
+      get :add_product
+    end
+  end
   resources :products
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "products#index"
 end
