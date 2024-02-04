@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :carts, only: [:show] do
-    member do
-      get :add_product
-    end
-  end
+  get 'cart', to: 'cart#show'
+  post 'cart/add'
+  post 'cart/remove'
   resources :products
-  root "products#index"
+  root 'products#index'
 end

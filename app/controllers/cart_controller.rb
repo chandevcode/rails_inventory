@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartController < ApplicationController
   def show
     @render_cart = false
   end
@@ -19,6 +19,17 @@ class CartsController < ApplicationController
       format.turbo_stream do
         render turbo_stream: [turbo_stream.replace('cart', partial: 'cart/cart', locals: { cart: @cart }),
                               turbo_stream.replace(@product)]
+      end
+    end
+  end
+
+  def remove
+    CartItem.find_by(id: params[:id]).destroy
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace('cart',
+                                                  partial: 'cart/cart',
+                                                  locals: { cart: @cart })
       end
     end
   end

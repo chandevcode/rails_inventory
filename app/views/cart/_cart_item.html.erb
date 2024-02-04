@@ -1,0 +1,21 @@
+<% @cart.cart_items.each do |item|%>
+  <% product = item.product %>
+  <div id="<%= "cart-#{product.id}" %>">
+    <div class="flex justify-between mr-5">
+      <h1> Name </h1>
+      <%= product.name %>
+      <h2> Price </h2>
+      <%= product.price %>
+
+      <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: product.id%>
+        <%= f.hidden_field :quantity, value: item.quantity, min: 0 %>
+        <%= f.submit "Add to cart" %>
+      <% end %>
+      <%= form_with(url: cart_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: item.id %>
+        <%= f.submit "X" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
