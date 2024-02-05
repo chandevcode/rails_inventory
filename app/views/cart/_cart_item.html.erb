@@ -12,13 +12,13 @@
         <%= form_with(url: cart_add_path) do |f| %>
           <%= f.hidden_field :id, value: product.id%>
           <%= f.number_field :quantity, value: item.quantity, min: 0 %>
-          <%= f.submit "Add to cart" %>
+          <%= f.submit "update" %>
         <% end %>
       </div>
-        <%= form_with(url: cart_remove_path) do |f| %>
-          <%= f.hidden_field :id, value: item.id %>
-          <%= f.submit "X" %>
-        <% end %>
+      <%= form_with(url: cart_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: item.id %>
+        <%= f.submit "X" %>
+      <% end %>
     </div>
   </div>
 <% end %>

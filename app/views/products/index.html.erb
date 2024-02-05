@@ -8,7 +8,10 @@
     <%= link_to "New product", new_product_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="products" class="min-w-full">
-    <%= render @products %>
+  <div class="flex">
+    <div id="products" class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" >
+      <%= render @products %>
+    </div>
+    <%= render partial: "cart/cart" if @render_cart %>
   </div>
 </div>
