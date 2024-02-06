@@ -1,10 +1,5 @@
 <ul class="space-y-1">
-  <li>
-    <a href="" class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
-      POS
-    </a>
-  </li>
-
+  <%= link_to "POS",root_path, class:"block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700" %>
   <li>
     <details class="group [&_summary::-webkit-details-marker]:hidden">
       <summary
@@ -31,15 +26,6 @@
       <ul class="mt-2 space-y-1 px-4">
         <li>
           <%= link_to "Add", new_product_path, class: "block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700" %>
-        </li>
-
-        <li>
-          <a
-            href=""
-            class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-          >
-            Calendar
-          </a>
         </li>
       </ul>
     </details>
