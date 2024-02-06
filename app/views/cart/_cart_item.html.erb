@@ -5,12 +5,11 @@
       <div class="flex items-center justify-center gap-4">
         <div>
           <h3 class="text-lg font-semibold text-gray-700"><%= product.name %></h3>
-          <h3 class="text-lg font-semibold text-green-600"><%= number_to_currency(product.price, :unit => "Rp ", :separator => ".", :delimiter => ",", :precision => 0) %></h3>
+          <h3 class="text-lg font-semibold text-green-700"><%= number_to_currency(product.price, :unit => "Rp ", :separator => ".", :delimiter => ",", :precision => 0) %></h3>
         </div>
         <div class="flex flex-1 items-center justify-end gap-2">
           <%= form_with(url: cart_add_path) do |f| %>
             <div class="flex space-x-2">
-
               <%= f.hidden_field :id, value: product.id%>
               <%= f.number_field :quantity, value: item.quantity, min: 0, class: "h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600" %>
               <%= f.submit "Update", class: "text-gray-700 hover:text-green-600" %>
