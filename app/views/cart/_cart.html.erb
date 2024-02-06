@@ -1,8 +1,20 @@
 <%= turbo_frame_tag "cart" do %>
-  <h1 class="text-lg text-gray-600">Cart</h1>
-  <% if @cart.cart_items.count > 0 %>
-    <%= render "cart/cart_item" %> <p>Total: <%= @cart.total %></p>
-  <% else %>
-    <p>Your cart is empty</p>
-  <% end %>
+  <div class="mx-auto max-w-screen-md px-4 py-8 sm:px-6 sm:scroll-py-12 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <header class="text-center mb-5">
+        <h1 class="text-lg font-bold text-gray-600 sm:text-3xl">Your Cart</h1>
+      </header>
+      <% if @cart.cart_items.count > 0 %>
+        <%= render "cart/cart_item" %>
+        <div class="flex justify-between">
+          <h2 class="text-lg font-bold text-gray-900">Total :</h2>
+          <h3 class="text-lg font-bold text-gray-900">
+            <%= number_to_currency(@cart.total, :unit => "Rp ", :separator => ".", :delimiter => ",", :precision => 0) %>
+          </h3>
+        </div>
+      <% else %>
+        <p>Your cart is empty</p>
+      <% end %>
+    </div>
+  </div>
 <% end %>

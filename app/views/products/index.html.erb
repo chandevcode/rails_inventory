@@ -9,9 +9,13 @@
   </div>
 
   <div class="flex">
-    <div id="products" class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5" >
-      <%= render @products %>
+    <div class="flex-3">
+      <div id="products" class="mx-auto grid max-w-6xl  grid-cols-12 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" >
+        <%= render @products %>
+      </div>
     </div>
-    <%= render partial: "cart/cart" if @render_cart %>
+    <div class="flex-1">
+      <%= render partial: "cart/cart" if @render_cart %>
+    </div>
   </div>
 </div>
