@@ -1,7 +1,6 @@
 class CartController < ApplicationController
   def show
     @render_cart = false
-    @cart = current_cart
   end
 
   def add
@@ -33,9 +32,5 @@ class CartController < ApplicationController
                                                   locals: { cart: @cart })
       end
     end
-  end
-
-  def checkout
-    @cart = current_cart
   end
 end
