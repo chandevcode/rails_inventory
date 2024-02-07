@@ -1,12 +1,10 @@
 <% @cart.cart_items.each do |item|%>
   <% product = item.product %>
   <div id="<%= "cart-#{product.id}" %>">
-    <div class="space-y-6 mb-8">
+    <div class="space-y-2 mb-5">
+      <h3 class="font-semibold text-gray-600"><%= product.name %></h3>
       <div class="flex items-center justify-center gap-4">
-        <div>
-          <h3 class="text-lg font-semibold text-gray-700"><%= product.name %></h3>
-          <h3 class="text-lg font-semibold text-green-700"><%= number_to_currency(product.price, :unit => "Rp ", :separator => ".", :delimiter => ",", :precision => 0) %></h3>
-        </div>
+        <h4 class="text-sm text-green-700"><%= number_to_currency(product.price, :unit => "Rp ", :separator => ".", :delimiter => ",", :precision => 0) %></h4>
         <div class="flex flex-1 items-center justify-end gap-2">
           <%= form_with(url: cart_add_path) do |f| %>
             <div class="flex space-x-2">

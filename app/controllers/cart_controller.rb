@@ -1,6 +1,7 @@
 class CartController < ApplicationController
   def show
     @render_cart = false
+    @cart = current_cart
   end
 
   def add
@@ -8,7 +9,7 @@ class CartController < ApplicationController
     quantity = params[:quantity].to_i
     current_order = @cart.cart_items.find_by(product_id: @product.id)
     if current_order && quantity > 0
-      current_order.update(quantity:)
+      current_order.update(quantity: current_order.quantity + quantity)
     elsif quantity <= 0
       @cart.cart_items.destroy
     else
@@ -32,5 +33,9 @@ class CartController < ApplicationController
                                                   locals: { cart: @cart })
       end
     end
+  end
+
+  def checkout
+    @cart = current_cart
   end
 end

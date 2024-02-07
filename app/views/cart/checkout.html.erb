@@ -1,0 +1,17 @@
+<h1>Checkout</h1>
+
+<% @cart.cart_items.each do |item| %>
+  <% product = item.product %>
+  <div class="mb-4">
+    <h3><%= product.name %></h3>
+    <h4>Quantity: <%= item.quantity %></h4>
+    <h4>Price: <%= number_to_currency(product.price, unit: "Rp ") %></h4>
+  </div>
+<% end %>
+
+<%= form_with(url: transactions_path, method: :post) do |form| %>
+  <% @cart.cart_items.each do |item| %>
+    <% product = item.product %>
+    <%= form.hidden_field :product_id, value: product.id %>
+    <%= form.hidden_field :quantity, value: item.quantity %>
+  <% end %>
