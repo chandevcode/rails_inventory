@@ -13,7 +13,7 @@
         <div class="flex justify-end  w-max-md">
           <%= form_with(url: orders_path, method: "post") do |form| %>
             <%= form.hidden_field :total_amount, value: @cart.total_amount %>
-            <%= form.submit "Proccess Order", class: "block w-full cursor-pointer rounded bg-indigo-600 text-white p-4 text-sm font-medium transition hover:scale-105" %>
+            <%= form.submit "Proccess Order", class: "btn-primary" %>
           <% end %>
         </div>
       <% else %>

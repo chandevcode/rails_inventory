@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'cart/remove'
   post 'cart/create'
 
-  resources :orders, only: [:create]
+  resources :orders
 
   resources :products
 

@@ -5,7 +5,7 @@
     <%= form_with(url: cart_add_path, class: "mt-4")  do |f| %>
       <%= f.hidden_field :id, value: product.id %>
       <%= f.hidden_field :quantity, value: 1, min: 0, class: " h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" %>
-      <%= f.submit "Add", class: "block w-full cursor-pointer rounded bg-gray-600 text-white p-4 text-sm font-medium transition hover:scale-105" %>
+      <%= f.submit "Add", class: "block w-full cursor-pointer rounded bg-indigo-800 text-white p-4 text-sm font-medium transition hover:scale-105" %>
     <% end %>
   </div>
 </div>

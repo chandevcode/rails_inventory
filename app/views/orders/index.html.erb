@@ -1,0 +1,33 @@
+<h1 class="text-lg font-bold text-gray-500">Order Table</h1>
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Id</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">User ID</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Cart ID</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Total</th>
+        <th class="px-4 py-2"> Status </th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200 text-center">
+      <% @orders.each do |order| %>
+        <tr>
+          <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"><%= order.id %></td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= order.user_id %></td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= order.cart_id %></td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= order.total %></td>
+          <td class="whitespace-nowrap px-4 py-2 text-center">
+            <a
+            href="#"
+            class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+          >
+              View
+            </a>
+          </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
