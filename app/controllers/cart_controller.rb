@@ -8,7 +8,7 @@ class CartController < ApplicationController
     quantity = params[:quantity].to_i
     current_order = @cart.cart_items.find_by(product_id: @product.id)
 
-    if current_order && quantity > 0
+    if current_order && quantity.positive?
       CartItem.transaction do
         current_order.update(quantity: current_order.quantity + quantity)
         @cart.save!
